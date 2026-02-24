@@ -1,103 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Azaela Precieuse Dickson | Class of 2026</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #f8f5f2;
-      text-align: center;
-      color: #222;
+    :root{
+      --cream:#fbf7f3;
+      --ink:#1f1f1f;
+      --muted:#6e6a67;
+      --gold:#b08d57;
+      --blush:#f3d8da;
+      --card:rgba(255,255,255,.74);
+      --border:rgba(176,141,87,.22);
+      --shadow: 0 18px 45px rgba(0,0,0,.10);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 650px at 15% 0%, var(--blush), transparent 60%),
+        radial-gradient(1100px 700px at 95% 10%, #efe7df, transparent 55%),
+        var(--cream);
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:26px 18px 70px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      color:var(--muted);font-size:13px;letter-spacing:.10em;text-transform:uppercase
+    }
+    .pill{
+      padding:9px 12px;border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
     }
 
-    .container {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
+    .hero{
+      margin-top:16px;border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,255,255,.55));
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+    .hero-inner{
+      padding:30px 22px;
+      display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:stretch
+    }
+    @media (max-width:820px){.hero-inner{grid-template-columns:1fr}}
+    h1{margin:0;font-size:clamp(34px,4vw,54px);letter-spacing:-.02em}
+    .sub{
+      margin:10px 0 0;color:var(--muted);
+      font-size:16px;line-height:1.65;max-width:60ch
+    }
+    .goldline{
+      margin-top:14px;height:2px;width:170px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .photo{
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(176,141,87,.18), rgba(243,216,218,.35)),
+        url('https://images.unsplash.com/photo-1520975958225-63d1a94877a3?auto=format&fit=crop&w=1200&q=60') center/cover no-repeat;
+      min-height:240px;
+    }
+    .note{
+      padding:16px 22px 22px;
+      border-top:1px solid rgba(176,141,87,.14);
+      background:rgba(255,255,255,.35);
+      color:var(--muted);
+      line-height:1.7;
     }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 5px;
+    .grid{
+      margin-top:18px;
+      display:grid;grid-template-columns:repeat(12,1fr);gap:16px;
     }
-
-    h2 {
-      font-weight: normal;
-      color: #b08d57;
-      margin-top: 0;
+    .card{
+      grid-column:span 6;
+      background:var(--card);
+      backdrop-filter: blur(10px);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
     }
+    @media (max-width:820px){.card{grid-column:span 12}}
+    .card h2{margin:2px 0 8px;font-size:20px}
+    .card p{margin:0 0 14px;color:var(--muted);line-height:1.6;font-size:15px}
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin: 20px 0;
+    .btns{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;
     }
-
-    .section {
-      margin: 50px 0;
+    @media (max-width:520px){.btns{grid-template-columns:1fr}}
+    a.btn{
+      display:flex;align-items:center;justify-content:center;
+      padding:12px 14px;border-radius:14px;
+      text-decoration:none;font-weight:650;
+      border:1px solid rgba(176,141,87,.30);
+      background:rgba(255,255,255,.72);
+      color:var(--ink);
+      transition: transform .12s ease, box-shadow .12s ease;
     }
-
-    .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 30px;
-      background-color: #b08d57;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 16px;
-      transition: 0.3s;
+    a.btn:hover{transform:translateY(-1px);box-shadow:0 14px 28px rgba(0,0,0,.12)}
+    a.btn.primary{
+      background:linear-gradient(135deg, rgba(176,141,87,.98), rgba(176,141,87,.75));
+      color:#fff;border:none;
     }
-
-    .button:hover {
-      background-color: #8c6f3f;
+    .info-box{
+      padding:12px 14px;border-radius:14px;
+      border:1px dashed rgba(176,141,87,.35);
+      background:rgba(255,255,255,.55);
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+      text-align:left;
     }
-
-    .footer {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #777;
+    .footer{
+      margin-top:18px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7
     }
   </style>
 </head>
 
 <body>
-
-  <div class="container">
-    <h1>Azaela Precieuse Dickson</h1>
-    <h2>Class of 2026 🎓</h2>
-
-    <p>
-      Thank you for celebrating this special milestone with me.
-      Your love, prayers, and support mean everything as I begin this next chapter.
-      If you would like to bless me with a graduation gift, you can use the options below.
-    </p>
-
-    <div class="section">
-      <h2>Send a Graduation Gift</h2>
-      <a class="button" href="https://cash.app/$YourCashTag" target="_blank">Cash App</a>
-      <a class="button" href="#" target="_blank">Zelle</a>
-      <a class="button" href="#" target="_blank">PayPal</a>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="pill">Class of 2026</div>
+      <div class="pill">Celebrating Azaela 🎓</div>
     </div>
 
-    <div class="section">
-      <h2>Shop My Wishlist</h2>
-      <a class="button" href="#" target="_blank">Amazon Wishlist</a>
-      <a class="button" href="#" target="_blank">Target Registry</a>
-    </div>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>Azaela Precieuse Dickson</h1>
+          <div class="goldline"></div>
+          <p class="sub">
+            Thank you for celebrating my graduation! Your love, prayers, and support mean the world to me.
+            If you’d like to bless me with a gift or contribution toward my next chapter, you can use the options below.
+          </p>
+        </div>
+        <div class="photo" aria-label="Photo area"></div>
+      </div>
 
-    <div class="section">
-      <h2>Leave Me a Message 💌</h2>
-      <a class="button" href="#" target="_blank">Write a Message</a>
+      <div class="note">
+        <strong>Gift Note:</strong> I’ll be continuing my education while staying close to home, and your support helps with
+        school essentials, books, technology, and future goals. Thank you for being part of my journey. 💛
+      </div>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Send a Graduation Contribution</h2>
+        <p>Select a secure option below.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://cash.app/$YourCashTag" target="_blank" rel="noopener">Cash App</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">PayPal</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Venmo</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Apple Pay</a>
+        </div>
+
+        <div style="height:12px"></div>
+        <div class="info-box">
+          <strong>Zelle:</strong> (Add email/phone here)<br/>
+          <span style="opacity:.9">Tip: In your banking app, search the Zelle recipient and label it “Graduation Gift.”</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Shop My Wishlist</h2>
+        <p>Prefer to purchase a gift? Choose a store below.</p>
+        <div class="btns">
+          <a class="btn primary" href="#" target="_blank" rel="noopener">Amazon Wishlist</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Target</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Walmart</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Other Gifts</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Leave a Message for the Grad 💌</h2>
+        <p>Drop a sweet note, advice, or a prayer—she’ll read them anytime.</p>
+        <div class="btns">
+          <a class="btn primary" href="#" target="_blank" rel="noopener">Write a Message</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">View Photos</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Graduation Details</h2>
+        <p>Add ceremony/party info if you want guests to have it in one place.</p>
+        <div class="info-box">
+          <strong>Ceremony:</strong> (Add date, time, location)<br/>
+          <strong>Mailing:</strong> (Add mailing info if desired)
+        </div>
+      </div>
     </div>
 
     <div class="footer">
-      With gratitude,<br>
-      Azaela 💛
+      With gratitude,<br/>
+      <strong>Azaela</strong> 💛<br/>
+      <span style="opacity:.9">Class of 2026</span>
     </div>
   </div>
-
 </body>
 </html>
